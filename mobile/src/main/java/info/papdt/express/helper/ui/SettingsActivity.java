@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsClient;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -86,6 +87,12 @@ public class SettingsActivity extends AbsActivity {
 
 	public Snackbar makeSnackbar(String message, int duration) {
 		return Snackbar.make($(R.id.container), message, duration);
+	}
+
+	@Override
+	public void onStart(){
+		CustomTabsClient.connectAndInitialize(SettingsActivity.this, "com.android.chrome");
+		super.onStart();
 	}
 
 }
