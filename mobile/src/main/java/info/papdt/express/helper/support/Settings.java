@@ -12,6 +12,7 @@ public class Settings {
 			KEY_NOTIFICATION_DO_NOT_DISTURB = "noti_do_not_disturb";
 
 	public static final String KEY_NAVIGATION_TINT = "navi_tint";
+	public static final String KEY_NAVIGATION_UI = "navi_UI";
 
 	public static final String KEY_FIRST_RUN = "first_run";
 

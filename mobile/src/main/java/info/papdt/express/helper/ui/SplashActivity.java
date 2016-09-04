@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import info.papdt.express.helper.R;
 import info.papdt.express.helper.support.MaterialImageLoader;
+import info.papdt.express.helper.support.Settings;
 import info.papdt.express.helper.ui.common.AbsActivity;
 
 public class SplashActivity extends AbsActivity {
@@ -36,10 +37,17 @@ public class SplashActivity extends AbsActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash_screen);
 
+		/** Open activity */
+		final Settings mSettings = Settings.getInstance(getApplicationContext());
+
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				MainActivity.launch(SplashActivity.this);
+				if (!mSettings.getBoolean(Settings.KEY_NAVIGATION_UI, false)) {
+					MainActivity.launch(SplashActivity.this);
+				} else if (mSettings.getBoolean(Settings.KEY_NAVIGATION_UI, false)) {
+					DrawerActivity.launch(SplashActivity.this);
+				}
 				finish();
 			}
 		}, 3000);

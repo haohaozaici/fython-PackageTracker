@@ -19,6 +19,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -176,6 +177,12 @@ public class DetailsActivity extends AbsActivity {
 
 			finish();
 			return true;
+		}else if (id == R.id.map_details) {
+			String pack = getIntent().getStringExtra(EXTRA_PACKAGE_JSON);
+			Intent intent = new Intent(this, MapActivity.class);
+			intent.putExtra("Package", pack);
+			startActivity(intent);
+
 		}
 		return super.onOptionsItemSelected(item);
 	}

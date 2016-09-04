@@ -1,6 +1,6 @@
 <resources>
 
-	<string name="app_name">水表助手</string>
+	<string name="app_name">水表助手Test</string>
 
 	<!-- Home design -->
 	<string name="navigation_item_all">全部</string>
@@ -89,6 +89,8 @@
 	<string name="category_ui_common">通用</string>
 	<string name="pref_navigation_tint">导航栏变色</string>
 	<string name="pref_navigation_tint_summary">这项特性只会在 Android 5.0 及更高版本启用。</string>
+	<string name="pref_navigation_UI">切换为新UI</string>
+	<string name="pref_navigation_UI_summary">design by haohaozaici</string>
 
 	<string name="category_notification">通知</string>
 	<string name="item_notification_interval">检查频率</string>

@@ -1,6 +1,10 @@
 <resources>
 
-	<string name="app_name">Package Tracker</string>
+	<string name="app_name">Package Tracker Test</string>
+
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+	<string name="navigation_drawer_close">Close navigation drawer</string>
+	<string name="section_format">Hello World from section: %1$d</string>
 
 	<!-- Home design -->
 	<string name="navigation_item_all">All</string>
@@ -76,6 +80,8 @@
 	<string name="author_sina_url">http://weibo.com/fython</string>
 	<string name="github_repo_title">Github Source</string>
 	<string name="github_repo_url">https://github.com/fython/PackageTracker</string>
+	<string name="github_repo_url2">https://github.com/haohaozaici/PackageTracker</string>
+
 	<string name="alipay_support_title">Donate through Alipay</string>
 	<string name="alipay_support_summary">316643843\@qq.com (Click to copy it)</string>
 	<string name="alipay_support_account">316643843\@qq.com</string>
@@ -89,6 +95,8 @@
 	<string name="category_ui_common">Common</string>
 	<string name="pref_navigation_tint">Navigation Bar Tint</string>
 	<string name="pref_navigation_tint_summary">This feature is only supported on Android 5.0+</string>
+	<string name="pref_navigation_UI">Switch to New UI</string>
+	<string name="pref_navigation_UI_summary">design by haohaozaici</string>
 
 	<string name="category_notification">Notification</string>
 	<string name="item_notification_interval">Notification interval</string>

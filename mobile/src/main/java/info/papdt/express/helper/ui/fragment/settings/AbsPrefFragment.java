@@ -50,6 +50,22 @@ abstract class AbsPrefFragment extends PreferenceFragment {
 				}).show();
 	}
 
+	public void makeRestartTipsClear() {
+		makeSnackbar(getString(R.string.toast_need_restart), Snackbar.LENGTH_LONG)
+				.setAction(R.string.toast_need_restart_action, new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						Intent i = getParentActivity()
+								.getBaseContext()
+								.getPackageManager()
+								.getLaunchIntentForPackage(getParentActivity().getPackageName());
+						i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+						getParentActivity().startActivity(i);
+						getParentActivity().finish();
+					}
+				}).show();
+	}
+
 	public void openWebsite(String url) {
 		CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 		builder.setToolbarColor(getActivity().getResources().getColor(R.color.pink_500));

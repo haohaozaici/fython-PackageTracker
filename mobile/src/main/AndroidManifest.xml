@@ -6,6 +6,9 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.CAMERA"/>
 	<uses-permission android:name="android.permission.READ_LOGS"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
 	<application
 		android:allowBackup="true"
@@ -14,6 +17,10 @@
 		android:supportsRtl="true"
 		android:fullBackupContent="true"
 		android:theme="@style/AppTheme">
+
+		<meta-data
+			android:name="com.amap.api.v2.apikey"
+			android:value="6bef67112d2e64c35348f77cd1aae688" />
 
 		<activity android:name=".EntryActivity"
 		          android:theme="@style/EmptyActivity">
@@ -94,6 +101,14 @@
 				<action android:name="android.intent.action.CREATE_SHORTCUT"/>
 			</intent-filter>
 		</activity>
+
+		<activity
+			android:name=".ui.DrawerActivity"
+			android:theme="@style/AppTheme.NoActionBar" />
+		<activity android:name=".ui.MapActivity"
+				  android:theme="@style/AppTheme2"
+				  android:parentActivityName=".ui.DetailsActivity"
+				  />
 
 		<service android:name="info.papdt.express.helper.services.ReminderService"/>
 		<service android:name="info.papdt.express.helper.services.AppWidgetService"

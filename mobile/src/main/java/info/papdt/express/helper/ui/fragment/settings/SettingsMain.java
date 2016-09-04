@@ -84,6 +84,10 @@ public class SettingsMain extends AbsPrefFragment implements Preference.OnPrefer
 			SettingsActivity.launch(getParentActivity(), SettingsActivity.FLAG_CONTRIBUTORS);
 			return true;
 		}
+//		if (pref == mPrefVersion) {
+//			Intent intent = new Intent(getParentActivity(), DrawerActivity.class);
+//			startActivity(intent);
+//		}
 		return false;
 	}
 
