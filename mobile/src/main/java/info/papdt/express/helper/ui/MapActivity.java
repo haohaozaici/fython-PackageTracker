@@ -20,6 +20,8 @@ import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeResult;
 
+import java.util.ArrayList;
+
 import info.papdt.express.helper.R;
 import info.papdt.express.helper.ui.common.AbsActivity;
 
@@ -33,7 +35,7 @@ public class MapActivity extends AbsActivity implements GeocodeSearch.OnGeocodeS
     private AMap aMap;
     private GeocodeSearch geocoderSearch;
     private LatLng mLatLng;
-    private LatLng[] mLatLngs;
+    private ArrayList<LatLng> mLatLngsArray = new ArrayList<>();
     private Marker geoMarker;
 
     private String mPackage;
@@ -54,7 +56,6 @@ public class MapActivity extends AbsActivity implements GeocodeSearch.OnGeocodeS
         JSONObject mPackageObj = JSON.parseObject(mPackage);
         String data = mPackageObj.getString("data");
         JSONArray dataArray = JSON.parseArray(data);
-        mLatLngs = new LatLng[dataArray.size()];
         for (int i = 0; i < dataArray.size(); i++) {
             String dataI = dataArray.get(i).toString();
             JSONObject dataobj = JSON.parseObject(dataI);
@@ -87,8 +88,7 @@ public class MapActivity extends AbsActivity implements GeocodeSearch.OnGeocodeS
                 GeocodeAddress address = result.getGeocodeAddressList().get(0);
                 LatLonPoint latLonPoint = address.getLatLonPoint();
                 mLatLng = new LatLng(latLonPoint.getLatitude(), latLonPoint.getLongitude());
-
-                mLatLngs[i1] = mLatLng;
+                mLatLngsArray.add(i1, mLatLng);
                 i1++;
 
                 geoMarker = aMap.addMarker(new MarkerOptions()
@@ -100,15 +100,15 @@ public class MapActivity extends AbsActivity implements GeocodeSearch.OnGeocodeS
 
                 if (i1 == 1) {
                     geoMarker.showInfoWindow();
-                } else if (i1 == mLatLngs.length - 1) {
-                    for (int j = 0; j < mLatLngs.length - 1; j++) {
+                } else if (i1 == mLatLngsArray.size()) {
+                    for (int j = 0; j < mLatLngsArray.size() - 1; j++) {
                         aMap.addPolyline((new PolylineOptions())
-                                .add(mLatLngs[j], mLatLngs[j + 1])
+                                .add(mLatLngsArray.get(j), mLatLngsArray.get(j + 1))
                                 .geodesic(true).setDottedLine(true));
 
                     }
                     aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                            mLatLngs[0], 6));
+                            mLatLngsArray.get(0), 7));
                 }
             }
         }
